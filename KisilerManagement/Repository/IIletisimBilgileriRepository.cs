@@ -12,5 +12,6 @@ namespace KisilerManagement.Repository
         string AddIletisimBilgileri(IletisimBilgileri iletisim);
         Task<IletisimBilgileri> GetIletisimBilgileriById(int Id);
         string DeleteIletisim(int id);
+        Task<IEnumerable<IletisimBilgileri>> KisiBazliIletisimBilgileri(int kisiId);
     }
 }

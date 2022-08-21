@@ -39,5 +39,10 @@ namespace KisilerManagement.Repository
             _context.SaveChanges();
             return "Kayıt Silindi";
         }
+        public async Task<IEnumerable<IletisimBilgileri>> KisiBazliIletisimBilgileri(int kisiId)
+        {
+            var list = await _context.IletisimBilgileri.Include(x => x.Kisi).Include(x => x.BilgiTipi).Where(x => x.KisiID == kisiId).ToListAsync();
+            return list;
+        }
     }
 }

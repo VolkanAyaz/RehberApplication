@@ -65,5 +65,12 @@ namespace KisilerManagement.Controllers
             var sonuc = _iletisimBilgileriRepository.DeleteIletisim(id);
             return sonuc;
         }
+
+        [HttpGet("kisiId/{id}", Name = "GetKisiIletisimBilgileri")]
+        public async Task<IEnumerable<IletisimBilgileri>> GetKisiIletisimBilgileri(int id)
+        {
+            var iletisim = await _iletisimBilgileriRepository.KisiBazliIletisimBilgileri(id);
+            return iletisim;
+        }
     }
 }
